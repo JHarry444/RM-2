@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <section>
+        <h2>lists</h2>
+        <ul>
+            <li>Milk</li>
+            <li>Eggs</li>
+            <li>Sugar</li>
+        </ul>
+        <ol>
+            <li>Milk</li>
+            <li>Eggs</li>
+            <li>Sugar</li>
+        </ol>
+    </section>
+
+    <form action="/url" method="get">
+        <fieldset>
+            <label for="userNameExample">Username</label>
+            <input type="text" name="username" id="userNameExample" autofocus>
+            <br>
+            <label for="passwordExample">Password</label>
+            <input type="password" name="password" id="passwordExample" minlength="6" maxlength="12" required>
+            <br>
+            <label for="emailExample">Email</label>
+            <input type="email" name="email" id="emailExample" required>
+        </fieldset>
+        <label for="dateExample">DOB</label>
+        <input type="date" name="dob" id="dateExample">
+        <br>
+        <label for="checkExample">Register for our newsletter?</label>
+        <input type="checkbox" name="register" id="checkExample">
+        <br>
+        <label for="selectExample">Country of origin</label>
+        <select name="country" id="selectExample">
+            <option value="">--Please choose a country from the list</option>
+            <option value="uk">United Kingdom</option>
+            <option value="aus">Australia</option>
+            <option value="fra">France</option>
+        </select>
+        <br>
+        <label>Religion:</label>
+        <br>
+        <label for="christianRadio">Christian</label>
+        <input type="radio" name="religion" id="christianRadio">
+        <label for="preferRadio">Atheist</label>
+        <input type="radio" name="religion" id="atheistRadio">
+        <label for="preferRadio">Prefer not to say</label>
+        <input type="radio" name="religion" id="preferRadio">
+        <br>
+        <label for="numberExample">Number:</label>
+        <input type="number" name="number" id="numberExample">
+        <button>Submit</button>
+    </form>
+
+</body>
+
+</html>
