@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro</title>
+    <!-- embedded styles - applies to whole page -->
+    <style>
+        #inputs {
+            color: bisque;
+        }
+
+        h2 {
+            color: orange;
+        }
+
+        /* a[href='#lists'] {
+            color: green;
+        } */
+
+        .subheading {
+            color: purple;
+        }
+
+        /* select by atttribute */
+        input[type='password'] {
+            background-color: red;
+        }
+
+        input {
+            background-color: yellow;
+        }
+
+        #emailInput {
+            background-color: green;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+        tr.stripy {
+            background-color: grey;
+        }
+
+        nav a {
+            color: blue
+        }
+
+        nav>a {
+            color: pink;
+        }
+
+
+
+        #siblings~p {
+            color: green;
+        }
+
+        #siblings+p {
+            color: red;
+        }
+    </style>
+    <!-- external styles - reusable between pages -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div>
+        <h1> Heading 1 </h1>
+        <h2> Headings </h2>
+        <!-- inline styling - sets the style attribute of an element -->
+        <!-- completely non-reusable -->
+        <h3 class="subheading"> Heading 3 </h3>
+        <h4> Heading 4 </h4>
+        <h5> Heading 5 </h5>
+        <h6> Heading 6 </h6>
+    </div>
+    <nav>
+        <h2 class="subheading">Links</h2>
+        <a href="https://www.qa.com/"> QA </a>
+        <a href="./about.html">
+            <img src="./me.jpg" height="50px">
+        </a>
+        <a href="./about.html" target="_blank">
+            <img src="./me.jpg" height="50px">
+        </a>
+        <div>
+            <a href="#lists"> Lists </a>
+
+        </div>
+    </nav>
+    <div>
+        <h2 class="subheading">Paragraphs</h2>
+        <p> First paragraph with <strong>bold</strong> or <em>italicised</em> text</p>
+        <h4>Random h4</h4>
+        <p> Second paragraph </p>
+        <section>
+            <!-- why is this one blue? -->
+            <p>NOT directly inside a div</p>
+        </section>
+    </div>
+    <div>
+        <h2 id="inputs" class="subheading">Inputs</h2>
+        <label for="">Username:</label>
+        <br>
+        <input id="exampleInput" type="text" name="username" style="background-color: red;">
+        <br>
+        <label for="passwordInput">Password:</label>
+        <br>
+        <input class="myInput" id="passwordInput" name="password" type="password">
+        <br>
+        <label for="confirmPasswordInput">Confirm Password:</label>
+        <br>
+        <input class="myInput" id="confirmPasswordInput" name="confirmPassword" type="password">
+    </div>
+    <div id="lists">
+        <h2> Lists </h2>
+        <ul>
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+            <li>Fourth</li>
+            <li>Fifth</li>
+        </ul>
+        <ol>
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+            <li>Fourth</li>
+            <li>Fifth</li>
+        </ol>
+    </div>
+    <h2 id="siblings">Siblings</h2>
+    <p> First paragraph with <strong>bold</strong> or <em>italicised</em> text</p>
+    <p> First paragraph with <strong>bold</strong> or <em>italicised</em> text</p>
+    <p> First paragraph with <strong>bold</strong> or <em>italicised</em> text</p>
+
+    <section>
+        <table>
+            <caption>Trainers</caption>
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Age</th>
+                    <th>Specialism </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="stripy">
+                    <td>JH</td>
+                    <td>32</td>
+                    <td>Java</td>
+                </tr>
+                <tr>
+                    <td>CG</td>
+                    <td>33</td>
+                    <td>Web</td>
+                </tr>
+                <tr class="stripy">
+                    <td>MS</td>
+                    <td>45</td>
+                    <td>Oracle</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </section>
+    <section>
+        <h2>Forms</h2>
+
+        <form>
+            <label for="emailInput">Email</label>
+            <input type="email" name="email" id="emailInput" required>
+            <br>
+            <label>
+                Password
+                <input type="password" name="password" required>
+            </label>
+            <button>Submit</button>
+        </form>
+    </section>
+</body>
+
+</html>
