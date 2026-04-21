@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning</title>
+    <style>
+        #sticky {
+            max-height: 150px;
+            /* anything past 150px in the div needs to be scrolled to */
+            overflow-y: scroll;
+        }
+
+        #sticky>h3,
+        header {
+            position: sticky;
+            top: 0px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Positioning Elements</h1>
+        </header>
+        <section>
+            <h2>Box Model</h2>
+            <div>
+                <!-- display:
+                    inline - multiple elements may occupy the same line
+                    block - always makes a new line
+                    none - does not display on the page -->
+                <label for="input">Input:</label>
+                <input type="text" name="input" id="input">
+                <label for="input">Input:</label>
+                <input type="text" name="input" id="input">
+            </div>
+            <br>
+            <div id="boxModel">
+                <!-- Adds a padding/margin clockwise from top -->
+                <!-- padding adds space between content and border (makes the thing BIGGER) -->
+                <button style="padding: 10px;">btn 1</button>
+                <!-- margin adds a space between an element and those around it -->
+                <button style="margin: 10px;">btn 2</button>
+                <button style="padding: 5px 10px 15px 20px;">btn 3</button>
+                <br>
+                <a href="whateve">Link</a>
+                <a href="whatevs" style="margin-left: 5px;">Link</a>
+                <p style="border: 1px solid black;">1</p>
+                <p style="border-radius: 20px; border-style: dotted; border-color: red; border-width: 5px;">2</p>
+            </div>
+            <div>
+                <img src="../assets/me.jpg" height="20px">
+            </div>
+        </section>
+        <section>
+            <h2>Float</h2>
+            <!-- Shunts pic to the left and allows text wrapping -->
+            <img src="../assets/me.jpg" height="500px">
+            <!-- disables float for this element (doesn't work for anything embedded in it) -->
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pretium arcu. Proin aliquet blandit
+                odio, id aliquam sem placerat id.</p>
+            <p> Aenean malesuada pellentesque elementum. <img src="../assets/me.jpg" alt="fluffy guy" height="50px">
+                Mauris
+                feugiat tincidunt risus, sit amet vestibulum libero
+                scelerisque at. Praesent faucibus pharetra pharetra. Sed sodales, nisi ac consequat laoreet, felis lacus
+                eleifend libero, vel rutrum odio nisl sit amet orci. Suspendisse faucibus malesuada elit, sit amet
+                mattis dui venenatis quis. Nulla vitae faucibus tellus. Cras at aliquam mi. Duis nulla eros, venenatis
+                ornare pretium ac, eleifend sed lectus. Sed tristique, lectus non placerat eleifend, est arcu dapibus
+                enim, et gravida justo metus in lorem. Sed sit amet tempor lectus. Mauris sed ultrices lorem, sed tempor
+                enim. Curabitur eu elit eget justo sagittis mollis sed eget elit. </p>
+        </section>
+        <!-- clear bumps section down to AFTER the floated element -->
+        <section>
+            <h2>Positioning</h2>
+            <!-- static - default - stays where it is -->
+            <!-- relative - use top/left to move it from where it would be if it was static -->
+            <!-- absolute - the nearest positioned ancestor  (is ignored by the next element i.e. the text will be BEHIND the picture)-->
+            <!-- fixed - always positioned relative to the top left corner of the page -->
+            <img src="../assets/me.jpg" height="200px">
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pretium arcu. Proin aliquet blandit
+                odio, id aliquam sem placerat id. Aenean malesuada pellentesque elementum. Mauris feugiat tincidunt
+                risus, sit amet vestibulum libero scelerisque at. Praesent faucibus pharetra pharetra. Sed sodales, nisi
+                ac consequat laoreet, felis lacus eleifend libero, vel rutrum odio nisl sit amet orci. Suspendisse
+                faucibus malesuada elit, sit amet mattis dui venenatis quis. Nulla vitae faucibus tellus. Cras at
+                aliquam mi. Duis nulla eros, venenatis ornare pretium ac, eleifend sed lectus. Sed tristique, lectus non
+                placerat eleifend, est arcu dapibus enim, et gravida justo metus in lorem. Sed sit amet tempor lectus.
+                Mauris sed ultrices lorem, sed tempor enim. Curabitur eu elit eget justo sagittis mollis sed eget elit.
+            </p>
+            <div id="sticky">
+                <!-- sticky - stays where it is and follows you when you scroll past -->
+                <h3>Sticky</h3>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
