@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+
+    <style>
+        div.calc-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: auto;
+        }
+        div.calc-buttons input#calc {
+            grid-column: 1 / -1;
+            font-size: 1.25rem;
+            padding: 8px;
+            text-align: right;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        div.calc-buttons button.wide {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Calculator</h1>
+    <main>
+
+        <div class="calc-buttons" aria-label="Calculator buttons">
+            <input type="number" name="calc" id="calc" readonly value="0">
+            <button type="button" class="btn func" data-action="clear">AC</button>
+            <button type="button" class="btn func" data-action="negate">±</button>
+            <button type="button" class="btn func" data-action="percent">%</button>
+            <button type="button" class="btn op" data-action="divide">÷</button>
+
+            <button type="button" class="btn" data-value="7">7</button>
+            <button type="button" class="btn" data-value="8">8</button>
+            <button type="button" class="btn" data-value="9">9</button>
+            <button type="button" class="btn op" data-action="multiply">×</button>
+
+            <button type="button" class="btn" data-value="4">4</button>
+            <button type="button" class="btn" data-value="5">5</button>
+            <button type="button" class="btn" data-value="6">6</button>
+            <button type="button" class="btn op" data-action="subtract">−</button>
+
+            <button type="button" class="btn" data-value="1">1</button>
+            <button type="button" class="btn" data-value="2">2</button>
+            <button type="button" class="btn" data-value="3">3</button>
+            <button type="button" class="btn op" data-action="add">+</button>
+
+            <button type="button" class="btn wide" data-value="0">0</button>
+            <button type="button" class="btn" data-value=".">.</button>
+            <button type="button" class="btn eq" data-action="equals">=</button>
+        </div>
+    </main>
+</body>
+
+</html>
