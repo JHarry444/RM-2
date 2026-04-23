@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+</head>
+
+<body>
+    <h2>srcset</h2>
+    <img src="kitten-small.png" srcset="kitten-small.png 500w,	kitten-medium.png 1000w, kitten-large.png 1500w"
+        sizes="50vw" alt="cute kitten" />
+    <br>
+    <h2>picture</h2>
+    <picture>
+        <source media="(min-width: 1024px)" srcset="kitten-large.png">
+        <source media="(min-width: 667px)" srcset="kitten-medium.png">
+        <img src="kitten-small.png" alt="Cute kitten">
+    </picture>
+    <h2>Originals</h2>
+    <img src="kitten-small.png" alt="small kitten">
+    <img src="kitten-medium.png" alt="med kitten">
+    <img src="kitten-large.png" alt="large kitten">
+</body>
+
+</html>
