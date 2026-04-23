@@ -44,6 +44,29 @@
                 document.getElementById("result").value = result;
             }
         }
+
+
+        for (let i = 0; i < 10; i++) {
+            console.log("I:", i);
+        }
+
+        for (let i = 0; i < 10; i += 2) {
+            console.log("I:", i);
+        }
+        for (let i = 10; i >= 0; i--) {
+            console.log("I:", i);
+        }
+
+
+
+        function getNumber() {
+            let num;
+            do {
+                num = parseInt(prompt("Gimme a number from 1-10"));
+            } while (num < 1 || num > 10);
+
+            alert("Your number was " + num);
+        }
     </script>
 </head>
 
@@ -64,7 +87,26 @@
     </section>
     <section>
         <h2>Loops</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
     </section>
+
+    <script>
+        const trainers = ["JH", "CG", "MS"];
+        const tBody = document.getElementById("tableBody");
+        for (let i = 0; i < trainers.length; i++) {
+            tBody.innerHTML += "<tr><td>" + trainers[i] + "</td></tr>";
+        }
+    </script>
 </body>
 
 </html>
