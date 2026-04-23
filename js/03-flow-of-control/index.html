@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow Of Control</title>
+
+    <script>
+        function calc() {
+            const firstNum = parseFloat(document.getElementById("firstNum").value);
+            const secondNum = parseFloat(document.getElementById("secondNum").value);
+            const operator = document.getElementById("operator").value;
+            debugger;
+            if (isNaN(firstNum) || isNaN(secondNum)) {
+                alert("NOT A NUMBER");
+            } else {
+                let result;
+                // switch (operator) {
+                //     case "+": result = firstNum + secondNum;
+                //         break;
+                //     case "-": result = firstNum - secondNum;
+                //         break;
+                //     case "*": result = firstNum * secondNum;
+                //         break;
+                //     case "/": result = firstNum / secondNum;
+                //         break;
+
+                // }
+
+                if (operator === "+") {
+                    result = firstNum + secondNum;
+                } else if (operator === "-") {
+                    result = firstNum - secondNum;
+                } else if (operator === "*") {
+                    result = firstNum * secondNum;
+                } else if (operator === "/") {
+                    result = firstNum / secondNum;
+                } else {
+                    alert("Operator mismatch")
+                }
+
+
+                document.getElementById("result").value = result;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Flow of Control</h1>
+    <section>
+        <h2>Conditionals</h2>
+        <input id="firstNum" value="0" autofocus>
+        <select id="operator">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input id="secondNum" value="0">
+        <button onclick="calc()">=</button>
+        <input type="number" id="result" readonly>
+    </section>
+    <section>
+        <h2>Loops</h2>
+    </section>
+</body>
+
+</html>
