@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <script>
+        function add(num1, num2) {
+            return num1 + num2;
+        }
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        // function expression
+        const subtract = function (num1, num2) {
+            return num1 - num2;
+        }
+
+        // arrow function
+        const multiply = (num1, num2) => {
+            return num1 * num2;
+        }
+
+        // if the function body has only one statement, we can omit the curly braces
+        // and the return keyword
+        const divide = (num1, num2) => num1 / num2;
+
+        // arrow functions with one parameter can omit the parentheses around the parameter
+        const log = message => console.log("LOG:", message);
+
+        const names = ["John", "Jane", "Doe"];
+
+        console.log("Starts with D:", names.find(name => name.toLowerCase().startsWith("d")));
+
+        // lambda functions are anonymous functions that can be used as arguments to other functions
+
+        console.log("Starts with J:", names.filter(name => name.toLowerCase().startsWith("j")));
+
+        // scope - the area of the code where a variable is defined and can be accessed
+        debugger
+        const a = 10; // global scope
+
+        {
+            const b = 20; // block scope
+            console.log("Inside block:", a, b);
+            function test() {
+                const c = 30; // function scope
+                console.log("Inside function:", a, b, c);
+            }
+            test();
+        }
+        test(); // Not a reference error because function declarations are hoisted to the top of their scope
+
+        console.log("Outside block:", a);
+        // console.log("Outside block:", b); // ReferenceError: b is not defined
+
+    </script>
+</head>
+
+<body>
+    <h1>Functions</h1>
+</body>
+
+</html>
