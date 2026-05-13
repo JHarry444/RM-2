@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+
+    <script>
+
+
+        const names = new Set(["John", "Jane", "Doe"]);
+        console.log(names);
+
+        names.add("John");
+        names.add("Barry");
+        console.log(names);
+
+        names.delete("Jane");
+        console.log(names);
+
+        for (let i of names) {
+            console.log("Name:", i);
+        }
+
+        const myMap = new Map();
+        myMap.set("name", "John");
+        myMap.set("age", 30);
+
+        const trainers = new Map();
+        trainers.set("1234ABC", { name: "JH", age: 32 });
+        trainers.set("1234ABC", { name: "JH", age: 33 });
+
+        console.log(trainers.get("1234ABC"));
+
+        // trainers.delete("1234ABC");
+        trainers.set("5678DEF", { name: "JD", age: 28 });
+        trainers.set("9012GHI", { name: "JS", age: 25 });
+
+        for (let [key, value] of trainers) {
+            console.log("Key:", key, "Value:", value);
+        }
+
+        for (let entries of trainers.entries()) {
+            console.log("Entries:", entries);
+            console.log("Key:", entries[0], "Value:", entries[1]);
+        }
+
+        const nums = new Array(1, 2, 3, 4, 5);
+        console.log(nums);
+        nums.forEach(num => console.log("Num:", num));
+    </script>
+</head>
+
+<body>
+    <h1>Collections</h1>
+</body>
+
+</html>
