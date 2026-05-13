@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let nums = [1, 2, 3, 4, 5];
+        console.log(nums);
+
+        let names = ["John", "Jane", "Doe"];
+        console.log(names);
+
+        console.log("First name:", names[0]);
+        console.log("Second name:", names[1]);
+        console.log("Third name:", names[2]);
+
+        names[3] = "barry"
+        names[3] = "Barry"
+        names[5] = "Larry"
+        console.log(names);
+
+        for (let i = 0; i < names.length; i++) {
+            // debugger
+            console.log("Name:", names[i]);
+        }
+
+        names[names.length] = "Mary";
+        console.log(names);
+        // add element at the end of the array
+        names.push("Gary");
+        console.log(names);
+        // remove last element
+        names.pop();
+        console.log(names);
+
+        // remove first element
+        names.shift();
+        console.log(names);
+        // add element at the beginning of the array
+        names.unshift("Alice");
+        console.log(names);
+
+
+        console.log("Starts with b:", names.find(name => name.toLowerCase().startsWith("b")));
+
+
+        let mixed = [1, "John", true, null, undefined, { name: "John" }, [1, 2, 3]];
+        console.log(mixed);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
