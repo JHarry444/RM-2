@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <script>
+        // object literal syntax
+        const trainer = {
+            name: "Jordan Harrison",
+            age: 32,
+            isCertified: true,
+            specialty: "Java"
+        };
+
+
+        // JavaScript Object Notation (JSON)
+        const trainerJSON = `{
+            "name": "Jordan Harrison",
+            "age": 32,
+            "isCertified": true,
+            "specialty": "Java"
+        }`;
+
+        let trainerJSON2 = JSON.stringify(trainer); // converts a JavaScript object into a JSON string
+        console.log(trainerJSON2);
+        let trainerObj = JSON.parse(trainerJSON); // converts a JSON string into a JavaScript object
+        console.log(trainerObj);
+
+
+        console.log(trainer.name);
+
+        console.log(trainer["name"]);
+
+        trainer["name"] = "Jordan Barrison";
+        // trainer = null; Uncaught TypeError: Assignment to constant variable.
+
+        trainer.name = "Jordan Harrison";
+        trainer.greet = () => "Hello!";
+        console.log(trainer);
+        trainer.greet()
+        delete trainer.isCertified
+
+        console.log(trainer);
+        trainer.ag = 33
+
+        console.log(trainer);
+        delete trainer.ag;
+        const nums = [1, 2, 3, 4, 5];
+        const [a, b, c] = nums
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        const [first, second, ...rest] = nums;
+
+        console.log(first);
+
+        console.log(second);
+
+        console.log(rest);
+        const nums2 = [6, 7, 8, 9, 10]
+        console.log(nums);
+        console.log(nums2);
+        const nums3 = [...nums, ...nums2];
+        console.log(nums3);
+        let nums4 = [2, 3, 4, 5, 6];
+        console.log(nums4);
+        nums4 = [1, ...nums4];
+        console.log(nums4);
+        nums4 = [...nums4, 7, 8, 9];
+        console.log(nums4);
+
+        console.log(trainer);
+        const { name, ...rest2 } = trainer;
+        console.log(name);
+        console.log(rest2);
+        function introduction(trainer) {
+            return `Hello! My name is ${trainer.name} and I am a ${trainer.age} years old trainer that specialises in ${trainer.specialty}`;
+        }
+
+        function introduction({ name, age, specialty }) {
+            return `Hello! My name is ${name} and I am a ${age} years old trainer that specialises in ${specialty}`;
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Objects</h1>
+</body>
+
+</html>
