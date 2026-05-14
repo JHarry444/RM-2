@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <h1>Forms</h1>
+
+    <form id="myForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="4" maxlength="10"><br><br>
+        <small id="alert" hidden style="color: red;"></small>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            debugger
+            event.preventDefault(); // Prevent the default form submission
+
+            const username = this.username.value;
+            const email = this.email.value;
+            const password = this.password.value;
+            const alertElement = document.getElementById('alert');
+            if (password.includes(' ')) {
+                alertElement.textContent = 'Password should not contain spaces.';
+                alertElement.hidden = false;
+                return;
+            } else {
+                alertElement.hidden = true;
+            }
+
+            console.log('Username:', username);
+            console.log('Email:', email);
+            console.log('Password:', password);
+
+            // You can also perform validation or send the data to a server here
+
+            fetch("http://localhost:3000/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, email, password })
+            }).then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
