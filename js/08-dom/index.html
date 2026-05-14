@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        p.myParagraph {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>DOM</h1>
+    <div id="output">
+
+    </div>
+    <script>
+        document.write("<p>Hello, World!</p>");
+
+        const outputDiv = document.getElementById("output");
+
+        outputDiv
+        console.log("outputDiv", outputDiv);
+
+        outputDiv.style.backgroundColor = "blue"
+        outputDiv.style.color = "red"
+        outputDiv.innerHTML = '<p class="myParagraph">Hello!</p>';
+
+        const newParagraph = document.createElement("p");
+        newParagraph.textContent = "This is a new paragraph.";
+        newParagraph.className = "myParagraph";
+        outputDiv.appendChild(newParagraph);
+
+
+        const myparagraphs = document.querySelectorAll("#output > p:nth-child(2)");
+        console.log(myparagraphs);
+
+    </script>
+</body>
+
+</html>
