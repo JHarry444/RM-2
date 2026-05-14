@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body.dark {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        function handleClick() {
+            alert("Button was clicked!");
+        }
+
+
+        function toggleTheme(event) {
+            const buttonClicked = event.target;
+            if (buttonClicked.innerText === "Dark Mode") {
+                document.body.className = "dark";
+                buttonClicked.innerText = "Light Mode";
+            } else {
+                document.body.className = "";
+                buttonClicked.innerText = "Dark Mode";
+            }
+        }
+
+        function convertMilesToKilometres(e) {
+            const miles = e.target.value;
+            const kilometres = miles * 1.6;
+            document.getElementById("kilometres").value = kilometres;
+        }
+        function convertKilometresToMiles(e) {
+            const kilometres = e.target.value;
+            const miles = kilometres / 1.6;
+            document.getElementById("miles").value = miles;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Events</h1>
+    <section>
+        <h2>Buttons</h2>
+        <button onclick="alert('yo!')">Click Me</button>
+        <button onclick="handleClick()">Click Me Too!</button>
+        <button onclick="toggleTheme(event)">Dark Mode</button>
+    </section>
+    <section>
+        <h2>Input</h2>
+        <label for="miles">Miles:</label>
+        <input type="number" id="miles" name="miles" value="0" oninput="convertMilesToKilometres(event)">
+        <label for="kilometres">Kilometres:</label>
+        <input type="number" id="kilometres" name="kilometres" value="0" oninput="convertKilometresToMiles(event)">
+    </section>
+</body>
+
+</html>
