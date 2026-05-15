@@ -42,6 +42,9 @@
 
 
     <script>
+        debugger
+        console.log("BEFORE THE REQUEST");
+
         fetch("http://localhost:8080/trainers")
             .then(response => {
                 if (!response.ok) {
@@ -50,6 +53,7 @@
                 return response.json();
             })
             .then(data => {
+                debugger
                 console.log('Success:', data);
                 const outputDiv = document.getElementById('output');
                 data.forEach(trainer => {
@@ -63,6 +67,7 @@
                     const trainerDeleteButton = document.createElement('button');
                     trainerDeleteButton.textContent = 'Delete';
                     trainerDeleteButton.addEventListener('click', () => {
+                        debugger;
                         fetch(`http://localhost:8080/trainers/${trainer.id}`, {
                             method: 'DELETE'
                         })
@@ -86,6 +91,8 @@
             }).catch((error) => {
                 console.error('Error:', error);
             });
+        console.log("AFTER THE REQUEST");
+
     </script>
     <script>
         document.getElementById('addTrainerForm').addEventListener('submit', function (event) {
@@ -122,6 +129,38 @@
                     console.error('Error:', error);
                 });
         });
+    </script>
+
+    <script>
+        console.log("BEFORE THE XHR");
+        const fetchTrainers = new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8080/trainers");
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    const trainers = JSON.parse(xhr.responseText);
+                    resolve(trainers);
+                } else {
+                    reject(new Error('Error fetching trainers: ' + xhr.statusText));
+                }
+            };
+            xhr.onerror = function () {
+                reject(new Error('Network error'));
+            };
+            xhr.send();
+        });
+
+        fetchTrainers
+            .then(trainers => {
+                console.log('Trainers:', trainers);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+
+        console.log("AFTER THE XHR");
+
     </script>
 </body>
 
