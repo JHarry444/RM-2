@@ -60,16 +60,34 @@
                     trainerAge.textContent = `Age: ${trainer.age}`;
                     const trainerSpecialty = document.createElement('p');
                     trainerSpecialty.textContent = `Specialty: ${trainer.specialty}`;
+                    const trainerDeleteButton = document.createElement('button');
+                    trainerDeleteButton.textContent = 'Delete';
+                    trainerDeleteButton.addEventListener('click', () => {
+                        fetch(`http://localhost:8080/trainers/${trainer.id}`, {
+                            method: 'DELETE'
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok ' + response.statusText);
+                                }
+                                // Remove the trainer div from the DOM
+                                outputDiv.removeChild(trainerDiv);
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                    });
                     trainerDiv.appendChild(trainerName);
                     trainerDiv.appendChild(trainerAge);
                     trainerDiv.appendChild(trainerSpecialty);
+                    trainerDiv.appendChild(trainerDeleteButton);
                     outputDiv.appendChild(trainerDiv);
                 });
             }).catch((error) => {
                 console.error('Error:', error);
             });
-
-
+    </script>
+    <script>
         document.getElementById('addTrainerForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
@@ -87,13 +105,14 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ name, age, specialty })
-            }).then(response => {
-                if (response.status !== 201) {
-                    throw new Error('Failed to add trainer: ' + response.statusText);
-                } else {
-                    return response.json();
-                }
             })
+                .then(response => {
+                    if (response.status !== 201) {
+                        throw new Error('Failed to add trainer: ' + response.statusText);
+                    } else {
+                        return response.json();
+                    }
+                })
                 .then(data => {
                     console.log('Success:', data);
                     this.reset(); // Clear the form after successful submission
