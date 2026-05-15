@@ -5,10 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch</title>
+
 </head>
 
 <body>
     <h1>Fetch</h1>
+
+    <div id="output">
+
+    </div>
+    <script>
+        fetch("https://raw.githubusercontent.com/JHarry444/RM-2/refs/heads/main/js/11-fetch/trainers.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                const outputDiv = document.getElementById('output');
+                data.forEach(trainer => {
+                    const trainerDiv = document.createElement('div');
+                    const trainerName = document.createElement('h2');
+                    trainerName.textContent = trainer.name;
+                    const trainerAge = document.createElement('p');
+                    trainerAge.textContent = `Age: ${trainer.age}`;
+                    trainerDiv.appendChild(trainerName);
+                    trainerDiv.appendChild(trainerAge);
+                    outputDiv.appendChild(trainerDiv);
+                });
+            }).catch((error) => {
+                console.error('Error:', error);
+            });
+    </script>
 </body>
 
 </html>
