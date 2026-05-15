@@ -5,17 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch</title>
-
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Fetch</h1>
+    <main>
+        <section>
+            <h2>Get Trainers</h2>
+            <div id="output">
 
-    <div id="output">
+            </div>
+        </section>
+        <section>
+            <h2>Add Trainer</h2>
+            <form id="addTrainerForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
 
-    </div>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required><br><br>
+
+                <label for="specialty">Specialty:</label>
+                <input type="text" id="specialty" name="specialty" required><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+
+
     <script>
-        fetch("https://raw.githubusercontent.com/JHarry444/RM-2/refs/heads/main/js/11-fetch/trainers.json")
+        fetch("http://localhost:8080/trainers")
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -31,13 +58,51 @@
                     trainerName.textContent = trainer.name;
                     const trainerAge = document.createElement('p');
                     trainerAge.textContent = `Age: ${trainer.age}`;
+                    const trainerSpecialty = document.createElement('p');
+                    trainerSpecialty.textContent = `Specialty: ${trainer.specialty}`;
                     trainerDiv.appendChild(trainerName);
                     trainerDiv.appendChild(trainerAge);
+                    trainerDiv.appendChild(trainerSpecialty);
                     outputDiv.appendChild(trainerDiv);
                 });
             }).catch((error) => {
                 console.error('Error:', error);
             });
+
+
+        document.getElementById('addTrainerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = this.name.value;
+            const age = this.age.value;
+            const specialty = this.specialty.value;
+
+            console.log('Name:', name);
+            console.log('Age:', age);
+            console.log('Specialty:', specialty);
+
+            fetch("http://localhost:8080/trainers", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, age, specialty })
+            }).then(response => {
+                if (response.status !== 201) {
+                    throw new Error('Failed to add trainer: ' + response.statusText);
+                } else {
+                    return response.json();
+                }
+            })
+                .then(data => {
+                    console.log('Success:', data);
+                    this.reset(); // Clear the form after successful submission
+                    this.name.focus(); // Set focus back to the name input
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
     </script>
 </body>
 
