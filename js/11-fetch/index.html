@@ -10,6 +10,17 @@
             display: grid;
             grid-template-columns: 2fr 1fr;
         }
+
+        #output {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 3px;
+        }
     </style>
 </head>
 
@@ -26,13 +37,13 @@
             <h2>Add Trainer</h2>
             <form id="addTrainerForm">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+                <input type="text" id="name" name="name" required>
 
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required><br><br>
+                <input type="number" id="age" name="age" required>
 
                 <label for="specialty">Specialty:</label>
-                <input type="text" id="specialty" name="specialty" required><br><br>
+                <input type="text" id="specialty" name="specialty" required>
 
                 <button type="submit">Submit</button>
             </form>
@@ -55,6 +66,7 @@
 
                 console.log('Success:', data);
                 const outputDiv = document.getElementById('output');
+                outputDiv.innerHTML = ''; // Clear previous content
                 data.forEach(trainer => {
                     const trainerDiv = document.createElement('div');
                     const trainerName = document.createElement('h2');
@@ -95,7 +107,7 @@
 
     </script>
     <script>
-        document.getElementById('addTrainerForm').addEventListener('submit', function (event) {
+        document.getElementById('addTrainerForm').addEventListener('submit', async function (event) {
             event.preventDefault();
 
             const name = this.name.value;
@@ -105,35 +117,31 @@
             console.log('Name:', name);
             console.log('Age:', age);
             console.log('Specialty:', specialty);
-
-            fetch("http://localhost:8080/trainers", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ name, age, specialty })
-            })
-                .then(response => {
-                    if (response.status !== 201) {
-                        throw new Error('Failed to add trainer: ' + response.statusText);
-                    } else {
-                        return response.json();
-                    }
-                })
-                .then(data => {
-                    console.log('Success:', data);
-                    this.reset(); // Clear the form after successful submission
-                    this.name.focus(); // Set focus back to the name input
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
+            try {
+                const response = await fetch("http://localhost:8080/trainers", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ name, age, specialty })
                 });
+                if (response.status !== 201) {
+                    throw new Error('Failed to add trainer: ' + response.statusText);
+                }
+                const data = await response.json();
+                fetchTrainers(); // Refresh the list of trainers after adding a new one
+                console.log('Success:', data);
+                this.reset(); // Clear the form after successful submission
+                this.name.focus(); // Set focus back to the name input
+            } catch (err) {
+                console.error(err);
+            }
         });
     </script>
 
     <script>
         console.log("BEFORE THE XHR");
-        const fetchTrainers = function () {
+        const fetchTrainersExample = function () {
             return new Promise((resolve, reject) => {
                 const xhr = new XMLHttpRequest();
                 xhr.open("GET", "http://localhost:8080/trainers");
@@ -152,7 +160,7 @@
             });
         }
 
-        fetchTrainers
+        fetchTrainersExample()
             .then(trainers => {
                 console.log('Trainers:', trainers);
             })
