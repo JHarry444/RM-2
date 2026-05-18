@@ -1,0 +1,41 @@
+{
+  "trainers": [
+    {
+      "id": "2",
+      "name": "Cameron",
+      "age": 33,
+      "specialty": "Web"
+    },
+    {
+      "name": "Jordan Harrison",
+      "age": "32",
+      "specialty": "Java",
+      "id": "bIDO9NX"
+    },
+    {
+      "name": "Shafeeq",
+      "age": "45",
+      "specialty": "Oracle",
+      "id": "Rvd6L61"
+    },
+    {
+      "name": "JB",
+      "age": "28",
+      "specialty": "ServiceNow",
+      "id": "N_XqCJc"
+    },
+    {
+      "name": "Peter",
+      "age": "60",
+      "specialty": "C#",
+      "id": "K9YhDzO"
+    },
+    {
+      "name": "Paul",
+      "age": "55",
+      "specialty": "C#",
+      "id": "9DhEeMR"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
