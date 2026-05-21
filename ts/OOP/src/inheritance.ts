@@ -25,6 +25,10 @@ class Pet {
     introduce() {
         console.log(`Hi, I'm ${this._name}, a ${this._age}-year-old ${this._breed}.`);
     }
+
+    makeNoise() {
+        console.log("Some generic pet noise");
+    }
 }
 
 
@@ -36,7 +40,7 @@ class Cat extends Pet {
         this._numberOfLives = 9;
     }
 
-    meow() {
+    makeNoise() {
         console.log("Meow!");
     }
 }
@@ -46,7 +50,7 @@ class Cat extends Pet {
 class Dog extends Pet {
 
     // methods
-    bark() {
+    makeNoise() {
         console.log("Bark!");
     }
 
@@ -57,11 +61,35 @@ class Dog extends Pet {
 
 }
 
+class Bird extends Pet {
+
+}
+
 const d = new Dog("Buddy", 5, "Golden Retriever");
-d.bark();
+d.makeNoise();
 d.fetch();
 d.introduce()
 
 const c = new Cat("Whiskers", 3, "Siamese");
-c.meow();
+c.makeNoise();
 c.introduce();
+
+
+const b = new Bird("Tweety", 2, "Canary");
+b.makeNoise();
+b.introduce();
+
+new Dog("Rex", 4, "German Shepherd").makeNoise();
+
+const pets: Pet[] = [d, c, b];
+
+console.log("LOOP:");
+
+for (const pet of pets) {
+    pet.makeNoise();
+    pet.introduce();
+
+    if (pet instanceof Dog) {
+        pet.fetch();
+    }
+}
