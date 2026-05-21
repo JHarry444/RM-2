@@ -6,12 +6,12 @@
 // }
 
 interface Trainer {
-    name: string;
+    readonly name: string;
     age: number;
 }
 
 interface Trainer {
-    specialty: string;
+    specialty?: string;
     introduce(): void;
 }
 
@@ -36,3 +36,4 @@ const cg: Trainer = {
     }
 }
 
+const theme: "light" | "dark" = "light";

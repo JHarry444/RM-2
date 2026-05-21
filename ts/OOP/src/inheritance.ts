@@ -97,3 +97,73 @@ for (const pet of pets) {
 
 // Pet p = new Pet("Generic Pet", 1, "Unknown");
 // Error: Cannot create an instance of an abstract class.
+const toNull = <T>(value: T) =>
+    value === '' || value === undefined ? null : value;
+
+class Cage {
+    public pet: Pet;
+
+    constructor(pet: Pet) {
+        this.pet = pet;
+    }
+
+    storePet(pet: Pet) {
+        if (this.pet) {
+            console.log("Cage is already occupied.");
+        } else {
+            this.pet = pet;
+        }
+    }
+
+    checkPet() {
+        return this.pet;
+    }
+
+}
+
+const kennel = new Cage(d);
+console.log(kennel.checkPet());
+kennel.checkPet()?.introduce();
+const petInCage = kennel.checkPet();
+
+if (petInCage instanceof Dog) {
+    petInCage.fetch();
+}
+
+class GenericCage<T extends Pet> {
+    public pet: T;
+
+    constructor(pet: T) {
+        this.pet = pet;
+    }
+
+    storePet(pet: T) {
+        if (this.pet) {
+            console.log("Cage is already occupied.");
+        } else {
+            this.pet = pet;
+        }
+    }
+
+    checkPet() {
+        return this.pet;
+    }
+}
+
+const genericKennel = new GenericCage<Dog>(d);
+console.log(genericKennel.checkPet());
+genericKennel.checkPet().introduce();
+genericKennel.checkPet().fetch();
+
+
+let vals: unknown[] = [0, "", null, undefined, false, true, "Hello", 42];
+
+for (const val of vals) {
+    console.log("VAL:", val);
+
+    if (!val) {
+        console.log("Value is falsy");
+    } else {
+        console.log("Value is truthy");
+    }
+}
