@@ -1,4 +1,4 @@
-class Pet {
+abstract class Pet {
     constructor(private _name: string, private _age: number, private _breed: string) {
 
     }
@@ -26,9 +26,7 @@ class Pet {
         console.log(`Hi, I'm ${this._name}, a ${this._age}-year-old ${this._breed}.`);
     }
 
-    makeNoise() {
-        console.log("Some generic pet noise");
-    }
+    abstract makeNoise(): string;
 }
 
 
@@ -41,7 +39,7 @@ class Cat extends Pet {
     }
 
     makeNoise() {
-        console.log("Meow!");
+        return "Meow!";
     }
 }
 
@@ -51,7 +49,7 @@ class Dog extends Pet {
 
     // methods
     makeNoise() {
-        console.log("Bark!");
+        return "Bark!";
     }
 
     fetch() {
@@ -62,6 +60,9 @@ class Dog extends Pet {
 }
 
 class Bird extends Pet {
+    makeNoise(): string {
+        return "Tweet!";
+    }
 
 }
 
@@ -93,3 +94,6 @@ for (const pet of pets) {
         pet.fetch();
     }
 }
+
+// Pet p = new Pet("Generic Pet", 1, "Unknown");
+// Error: Cannot create an instance of an abstract class.
