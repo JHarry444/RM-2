@@ -1,4 +1,5 @@
 import './App.css'
+import ExternalData from './components/ExternalData';
 import Input from './components/Input';
 import Trainer from './components/Trainer'
 
@@ -31,6 +32,10 @@ function App() {
         <h2>Capitalisation</h2>
         <Input />
         <input type="text" />
+      </section>
+
+      <section>
+        <ExternalData />
       </section>
     </div>
   )
