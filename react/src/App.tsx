@@ -18,10 +18,11 @@ function App() {
         <li>Eggs</li>
         <li>Milk</li>
       </ul>
-      <Trainer />
+      <Trainer name="JH" age={32} specialty="Java" image='https://avatars.githubusercontent.com/u/41322826' />
       {
-        Trainer()
+        Trainer({ name: "CG", age: 33, specialty: "Web", image: 'https://avatars.githubusercontent.com/u/9989655' })
       }
+      <Trainer name="MS" age={45} specialty="Oracle" />
       <p>1 + 1</p>
       <p>{1 + 1}</p>
       <p>getText()</p>
