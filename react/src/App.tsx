@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import Props from './components/pages/Props';
 import NavBar from './components/NavBar';
 import EventHandling from './components/pages/EventHandling';
+import State from './components/pages/State';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/props" element={<Props />} />
         <Route path="/external" element={<ExternalData />} />
         <Route path="/events" element={<EventHandling />} />
+        <Route path="/state" element={<State />} />
       </Routes>
       <footer>
         <small>I'm a footer!</small>
