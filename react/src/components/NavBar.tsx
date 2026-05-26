@@ -8,6 +8,7 @@ function NavBar() {
             <Link to="/external">External Data</Link>
             <Link to="/events">Event Handling</Link>
             <Link to="/state">State</Link>
+            <Link to="/trainer">Trainers</Link>
         </nav>
     );
 }

@@ -1,5 +1,5 @@
-import trainers from '../data/trainers.json';
-import Trainer from './Trainer';
+import trainers from '../../data/trainers.json';
+import Trainer from '../Trainer';
 
 
 function ExternalData() {
