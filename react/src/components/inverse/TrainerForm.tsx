@@ -74,6 +74,7 @@ function TrainerForm({ setTrainers }: { setTrainers: React.Dispatch<React.SetSta
                 <br />
                 <button type="submit">Submit</button>
             </form>
+            <p>{new Date().toISOString()}</p>
         </div>
     );
 }

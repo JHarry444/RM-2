@@ -3,5 +3,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #333;
+  /* background-color: #333; */
+}
+
+.light,
+nav.light a {
+  color: black;
+  background-color: white;
+}
+
+.dark,
+nav.dark a {
+  color: white;
+  background-color: black;
 }
