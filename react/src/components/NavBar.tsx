@@ -4,7 +4,7 @@ import { ThemeContext } from "../context/contexts";
 
 function NavBar() {
 
-    const { theme, setTheme } = useContext(ThemeContext);
+    const { theme, toggleTheme } = useContext(ThemeContext);
     return (
         <nav className={theme}>
             <Link to="/">Home</Link>
@@ -13,7 +13,8 @@ function NavBar() {
             <Link to="/events">Event Handling</Link>
             <Link to="/state">State</Link>
             <Link to="/trainer">Trainers</Link>
-            <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>Toggle</button>
+            <Link to="/queryTrainerForm">Query Trainer</Link>
+            <button onClick={toggleTheme}>Toggle</button>
         </nav>
     );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TrainerForm from "../inverse/TrainerForm";
 import TrainerList from "../inverse/TrainerList";
-export type Trainer = {
+export type TrainerType = {
     id?: number;
     name: string;
     age: number;
@@ -10,7 +10,7 @@ export type Trainer = {
 
 
 function TrainerContainer() {
-    const [trainers, setTrainers] = useState<Trainer[]>([]);
+    const [trainers, setTrainers] = useState<TrainerType[]>([]);
 
     const fetchTrainers = () => {
         fetch("http://localhost:8080/trainers")
@@ -22,7 +22,12 @@ function TrainerContainer() {
     // the [] means it will only run once when the component mounts
     // effectively simulating componentDidMount
     useEffect(() => {
+        const trainerInterval = setInterval(fetchTrainers, 5_000); // fetch every 5 seconds
+
+        // fetch immediately on mount
         fetchTrainers();
+        // a function returned from useEffect is used for cleanup, so we clear the interval when the component unmounts
+        return () => clearInterval(trainerInterval); // cleanup on unmount
     }, []);
 
 

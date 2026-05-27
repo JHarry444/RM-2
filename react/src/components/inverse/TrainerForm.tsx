@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import type { Trainer } from "../pages/TrainerContainer";
+import type { TrainerType } from "../pages/TrainerContainer";
 
-function TrainerForm({ setTrainers }: { setTrainers: React.Dispatch<React.SetStateAction<Trainer[]>> }) {
+function TrainerForm({ setTrainers }: { setTrainers: React.Dispatch<React.SetStateAction<TrainerType[]>> }) {
     const [newTrainer, setNewTrainer] = useState({
         name: "",
         age: 0,

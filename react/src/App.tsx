@@ -9,6 +9,9 @@ import EventHandling from './components/pages/EventHandling';
 import State from './components/pages/State';
 import TrainerContainer from './components/pages/TrainerContainer';
 import ThemeContextProvider from './context/ThemeContextProvider';
+import FindTrainer from './components/pages/FindTrainer';
+import QueryTrainer from './components/pages/QueryTrainer';
+import QueryTrainerForm from './components/pages/QueryTrainerForm';
 
 function App() {
 
@@ -23,6 +26,9 @@ function App() {
           <Route path="/events" element={<EventHandling />} />
           <Route path="/state" element={<State />} />
           <Route path='/trainer' element={<TrainerContainer />} />
+          <Route path='/findTrainer/:id' element={<FindTrainer />} />
+          <Route path='/queryTrainer' element={<QueryTrainer />} />
+          <Route path='/queryTrainerForm' element={<QueryTrainerForm />} />
         </Routes>
         <footer>
           <small>I'm a footer!</small>

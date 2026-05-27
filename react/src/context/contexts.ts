@@ -2,9 +2,9 @@ import { createContext } from "react";
 
 export const ThemeContext = createContext<{
     theme: string;
-    setTheme: React.Dispatch<React.SetStateAction<string>>;
+    toggleTheme: () => void;
 }
 >({
     theme: "light",
-    setTheme: () => { }
+    toggleTheme: () => { }
 });

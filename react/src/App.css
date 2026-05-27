@@ -17,3 +17,16 @@ nav.dark a {
   color: white;
   background-color: black;
 }
+
+
+div.trainer {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+
+div.dark.trainer {
+  border-color: red;
+}
