@@ -9,13 +9,31 @@ function TrainerForm({ setTrainers }: { setTrainers: React.Dispatch<React.SetSta
     });
 
 
-    const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log("New Trainer:", newTrainer);
         // Here you would typically send the new trainer data to a server
-        setTrainers(prevTrainers => [...prevTrainers, { id: prevTrainers.length + 1, ...newTrainer }]);
+        setTrainers(prevTrainers => [...prevTrainers, newTrainer]);
         setNewTrainer({ name: "", age: 0, specialty: "" }); // Reset form after submission
         nameRef.current?.focus(); // Focus the name input after submission
+
+        try {
+            const response = await fetch("http://localhost:8080/trainers", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newTrainer)
+            });
+
+            if (response.status === 201) {
+                console.log("Trainer added successfully");
+            } else {
+                console.error("Failed to add trainer");
+            }
+        } catch (error) {
+            console.error("Error adding trainer:", error);
+        }
     }
 
     const nameRef = useRef<HTMLInputElement>(null);

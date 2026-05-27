@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TrainerForm from "../inverse/TrainerForm";
 import TrainerList from "../inverse/TrainerList";
 export type Trainer = {
-    id: number;
+    id?: number;
     name: string;
     age: number;
     specialty: string;
@@ -10,7 +10,22 @@ export type Trainer = {
 
 
 function TrainerContainer() {
-    const [trainers, setTrainers] = useState<Trainer[]>([{ id: 1, name: "JH", age: 32, specialty: "Java" }]);
+    const [trainers, setTrainers] = useState<Trainer[]>([]);
+
+    const fetchTrainers = () => {
+        fetch("http://localhost:8080/trainers")
+            .then(response => response.json())
+            .then(data => setTrainers(data));
+    }
+
+    // useEffect to fetch trainers when the component mounts
+    // the [] means it will only run once when the component mounts
+    // effectively simulating componentDidMount
+    useEffect(() => {
+        fetchTrainers();
+    }, []);
+
+
     return (
         <>
             <h1>Trainer Container</h1>

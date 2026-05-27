@@ -1,0 +1,16 @@
+{
+  "trainers": [
+    {
+      "id": 1,
+      "name": "JH",
+      "age": 32,
+      "specialty": "Java"
+    },
+    {
+      "name": "jb",
+      "age": 29,
+      "specialty": "ServiceNow",
+      "id": 2
+    }
+  ]
+}
