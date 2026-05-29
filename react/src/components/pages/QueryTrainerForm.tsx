@@ -43,17 +43,15 @@ function QueryTrainerForm() {
                     onChange={(e) => setQuery({ ...query, name: e.target.value })}
                     autoFocus
                 />
-                <br />
                 <label htmlFor="age">Age</label>
                 <input
                     type="number"
                     id="age"
                     name="age"
                     value={query.age}
-                    onChange={(e) => setQuery({ ...query, age: Number(e.target.value) })}
+                    onChange={(e) => setQuery(prevQuery => ({ ...prevQuery, age: Number(e.target.value) }))}
 
                 />
-                <br />
                 <label htmlFor="specialty">Specialty</label>
                 <input
                     type="text"
@@ -63,7 +61,6 @@ function QueryTrainerForm() {
                     onChange={(e) => setQuery({ ...query, specialty: e.target.value })}
 
                 />
-                <br />
                 <button type="submit">Submit</button>
             </form>
         </div>

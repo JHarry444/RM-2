@@ -51,7 +51,6 @@ function TrainerForm({ setTrainers }: { setTrainers: React.Dispatch<React.SetSta
                     required
                     ref={nameRef}
                 />
-                <br />
                 <label htmlFor="age">Age</label>
                 <input
                     type="number"
@@ -61,7 +60,6 @@ function TrainerForm({ setTrainers }: { setTrainers: React.Dispatch<React.SetSta
                     onChange={(e) => setNewTrainer({ ...newTrainer, age: Number(e.target.value) })}
                     required
                 />
-                <br />
                 <label htmlFor="specialty">Specialty</label>
                 <input
                     type="text"
@@ -71,7 +69,6 @@ function TrainerForm({ setTrainers }: { setTrainers: React.Dispatch<React.SetSta
                     onChange={(e) => setNewTrainer({ ...newTrainer, specialty: e.target.value })}
                     required
                 />
-                <br />
                 <button type="submit">Submit</button>
             </form>
             <p>{new Date().toISOString()}</p>

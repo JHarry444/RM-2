@@ -35,7 +35,7 @@ function TrainerContainer() {
         <>
             <h1>Trainer Container</h1>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
                 <TrainerForm setTrainers={setTrainers} />
                 <TrainerList trainers={trainers} />
             </div>

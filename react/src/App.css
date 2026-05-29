@@ -30,3 +30,8 @@ div.trainer {
 div.dark.trainer {
   border-color: red;
 }
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
